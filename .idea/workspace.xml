@@ -1,49 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3b4a14a-3fff-4420-a6ba-ec7f00493cec" name="Changes" comment="" />
+    <list default="true" id="b61c63e7-7e8d-4822-a70c-0259a1a7fe67" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ExplodingPenguinGame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ExplodingPenguinGame.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Basic Sprite.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Basic Sprite.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Eyes.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Gun.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Gun.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Sprite With Angry Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Angry Eyes.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Sprite With Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Eyes.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="PyGame Script" />
-      </list>
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2JfAC9jfyVCYPGUOQIeEyKF13dC" />
+  <component name="ProjectId" id="2JjTe1hLFJFiplyx94iJL3Ocups" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Elakkiyan/PycharmProjects/PyGame_Game",
-    "settings.editor.selected.configurable": "fileTemplates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Elakkiyan\PycharmProjects\PyGame_Game" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Elakkiyan\PycharmProjects\PyGame_Game" />
-    </key>
-  </component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="PyGame_Game" />
+      <module name="ExplodingPenguinGame" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -67,12 +59,23 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a3b4a14a-3fff-4420-a6ba-ec7f00493cec" name="Changes" comment="" />
-      <created>1672458634084</created>
+      <changelist id="b61c63e7-7e8d-4822-a70c-0259a1a7fe67" name="Changes" comment="" />
+      <created>1672590583921</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1672458634084</updated>
+      <updated>1672590583921</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
