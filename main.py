@@ -1,12 +1,15 @@
 import pygame
 from sys import exit
+import math
 
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.transform.rotozoom(pygame.image.load("Hero_Still.png").convert_alpha(), 0, 0.75)
+        self.image = pygame.transform.rotozoom(pygame.image.load("Assets/Graphics/Basic Sprite.PNG").convert_alpha(), 0, 0.75)
         self.rect = self.image.get_rect(center=(500, 400))
+        global playerXpos
+        global playerYpos
 
     def player_movement(self):
         dy = 10
@@ -31,30 +34,49 @@ class Player(pygame.sprite.Sprite):
         if self.rect.bottom >= 800:
             self.rect.bottom = 800
 
+
     def update(self):
         self.player_movement()
         self.boundaries()
+        global playerXpos
+        global playerYpos
+        playerXpos = self.rect.centerx
+        playerYpos = self.rect.centery
+class Eyes(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.image = pygame.image.load("Assets/Graphics/Eyes.PNG").convert_alpha()
+        self.rect = self.image.get_rect(center = (playerXpos + 50, playerYpos + 50))
+
+    def update(self):
+        self.rect.center = (playerXpos + 5, playerYpos - 50)
 
 
 pygame.init()
 screen = pygame.display.set_mode((1000, 800))
 pygame.display.set_caption("Penguin Apocalypse")
 clock = pygame.time.Clock()
-screen.fill("#58c4d4")
-
+screen.fill("#f0f49c")
+playerXpos = 0
+playerYpos = 0
 # Player Class Group
 player = pygame.sprite.GroupSingle()
 player.add(Player())
-
+eyes = pygame.sprite.GroupSingle()
+eyes.add(Eyes())
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
 
-    screen.fill("#58c4d4")
+    screen.fill("#f8f4ec")
+
     player.update()
     player.draw(screen)
+
+    eyes.update()
+    eyes.draw(screen)
 
     pygame.display.update()
     clock.tick(60)
