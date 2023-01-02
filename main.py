@@ -1,6 +1,6 @@
 import pygame
+from math import *
 from sys import exit
-import math
 
 
 class Player(pygame.sprite.Sprite):
@@ -8,7 +8,7 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
         self.image = pygame.transform.rotozoom(pygame.image.load(
             "Assets/Graphics/Player/Basic Sprite.PNG").convert_alpha(), 0, 0.75)
-        self.rect = self.image.get_rect(center=(500, 400))
+        self.rect = self.image.get_rect(center=(200, 200))
         global playerXpos
         global playerYpos
 
@@ -57,18 +57,17 @@ class Eyes(pygame.sprite.Sprite):
         mouseX, mouseY = pygame.mouse.get_pos()
         distanceX = mouseX - self.rect.x
         distanceY = mouseY - self.rect.y
-        print(distanceX, distanceY)
-        if distanceX <= -55:
-            distanceX = -55
-        if distanceX >= 20:
-            distanceX = 20
-        if distanceY <= -50:
-            distanceY = -50
+        if distanceX <= -80:
+            distanceX = -80
+        if distanceX >= 50:
+            distanceX = 50
+        if distanceY <= -80:
+            distanceY = -80
         if distanceY >= 15:
             distanceY = 15
         # if distanceY
-        self.rect.x -= distanceX / -20
-        self.rect.y -= distanceY / -20
+        self.rect.x -= distanceX / -12
+        self.rect.y -= distanceY / -12
         pass
 
     def update(self):
@@ -76,15 +75,36 @@ class Eyes(pygame.sprite.Sprite):
         self.eye_movement()
 
 
-class Penguin(pygame.sprite.Sprite):
+class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("Assets/Graphics/Penguin/Penguin Front 2.PNG").convert_alpha()
+        self.image = pygame.transform.rotozoom(pygame.image.load("Assets/Graphics/Penguin/Penguin Front 2.PNG").convert_alpha(), 0, 4)
         self.rect = self.image.get_rect(center=(600, 600))
 
-    def update(self):
-        pass
+    def ai(self):
+        distanceX = playerXpos - self.rect.centerx
+        distanceY = playerYpos - self.rect.centery
+        speed = 5
+        angle = atan2(distanceY, distanceX)
+        enemyXdir = cos(angle)
+        enemyYdir = sin(angle)
+        print(enemyXdir, enemyYdir)
+        self.rect.centerx += enemyXdir * speed
+        self.rect.centery += enemyYdir * speed
 
+    def boundaries(self):
+        if self.rect.left <= 0:
+            self.rect.left = 0
+        if self.rect.right >= 1000:
+            self.rect.right = 1000
+        if self.rect.top <= 0:
+            self.rect.top = 0
+        if self.rect.bottom >= 800:
+            self.rect.bottom = 800
+
+    def update(self):
+        self.ai()
+        self.boundaries()
 
 pygame.init()
 screen = pygame.display.set_mode((1000, 800))
@@ -99,8 +119,8 @@ player = pygame.sprite.GroupSingle()
 player.add(Player())
 eyes = pygame.sprite.GroupSingle()
 eyes.add(Eyes())
-penguin = pygame.sprite.GroupSingle()
-penguin.add(Penguin())
+enemy = pygame.sprite.GroupSingle()
+enemy.add(Enemy())
 
 while True:
     for event in pygame.event.get():
@@ -116,8 +136,8 @@ while True:
     eyes.update()
     eyes.draw(screen)
 
-    penguin.update()
-    penguin.draw(screen)
+    enemy.update()
+    enemy.draw(screen)
 
     pygame.display.update()
     clock.tick(60)
