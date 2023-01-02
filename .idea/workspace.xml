@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="b61c63e7-7e8d-4822-a70c-0259a1a7fe67" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ExplodingPenguinGame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ExplodingPenguinGame.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="b61c63e7-7e8d-4822-a70c-0259a1a7fe67" name="Changes" comment=".idea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Basic Sprite.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Basic Sprite.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Eyes.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Gun.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Gun.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Sprite With Angry Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Angry Eyes.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Sprite With Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Eyes.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +15,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2JjTe1hLFJFiplyx94iJL3Ocups" />
   <component name="ProjectViewState">
@@ -65,7 +62,35 @@
       <option name="presentableId" value="Default" />
       <updated>1672590583921</updated>
     </task>
+    <task id="LOCAL-00001" summary="Idk why I have to commit these again. Screwed up my IDE, had to re-create the project, and copied all the files except .idea">
+      <created>1672590951287</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672590951287</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added penguin sprite, as a placeholder. Changed eye boundary, in last commit FYI.">
+      <created>1672591048476</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672591048476</updated>
+    </task>
+    <task id="LOCAL-00003" summary=".idea">
+      <created>1672591058716</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672591058716</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Idk why I have to commit these again. Screwed up my IDE, had to re-create the project, and copied all the files except .idea" />
+    <MESSAGE value="Added penguin sprite, as a placeholder. Changed eye boundary, in last commit FYI." />
+    <MESSAGE value=".idea" />
+    <option name="LAST_COMMIT_MESSAGE" value=".idea" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
