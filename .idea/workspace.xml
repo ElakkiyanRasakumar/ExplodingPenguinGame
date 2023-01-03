@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b61c63e7-7e8d-4822-a70c-0259a1a7fe67" name="Changes" comment=".idea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Basic Sprite.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Basic Sprite.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Eyes.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Gun.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Gun.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Angry Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Angry Eyes.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Eyes.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,12 +29,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Elakkiyan/PycharmProjects/ExplodingPenguinGame/Assets/Graphics/Player"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics\Player" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ExplodingPenguinGame" />
@@ -83,12 +94,27 @@
       <option name="project" value="LOCAL" />
       <updated>1672591058716</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Enemy now follows player">
+      <created>1672637419645</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672637419645</updated>
+    </task>
+    <task id="LOCAL-00005" summary=".idea">
+      <created>1672637427652</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672637427652</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Idk why I have to commit these again. Screwed up my IDE, had to re-create the project, and copied all the files except .idea" />
     <MESSAGE value="Added penguin sprite, as a placeholder. Changed eye boundary, in last commit FYI." />
+    <MESSAGE value="Enemy now follows player" />
     <MESSAGE value=".idea" />
     <option name="LAST_COMMIT_MESSAGE" value=".idea" />
   </component>
@@ -97,7 +123,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>57</line>
+          <line>70</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
