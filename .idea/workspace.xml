@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b61c63e7-7e8d-4822-a70c-0259a1a7fe67" name="Changes" comment=".idea">
+    <list default="true" id="b61c63e7-7e8d-4822-a70c-0259a1a7fe67" name="Changes" comment="Added more player images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Basic Sprite.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Basic Sprite.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Eyes.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Gun.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Gun.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Angry Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Angry Eyes.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Eyes.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Player/Sprite With Eyes.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Gun.PNG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,13 +25,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Elakkiyan/PycharmProjects/ExplodingPenguinGame/Assets/Graphics/Player"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Elakkiyan/PycharmProjects/ExplodingPenguinGame/Assets/Graphics/Player&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics\Player" />
@@ -108,22 +104,64 @@
       <option name="project" value="LOCAL" />
       <updated>1672637427652</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added and updated player graphics">
+      <created>1672722484880</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672722484880</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added animations to player, and title screen.">
+      <created>1672722500649</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1672722500649</updated>
+    </task>
+    <task id="LOCAL-00008" summary=".idea">
+      <created>1672722518406</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1672722518406</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added more player images">
+      <created>1672722536149</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1672722536149</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Idk why I have to commit these again. Screwed up my IDE, had to re-create the project, and copied all the files except .idea" />
     <MESSAGE value="Added penguin sprite, as a placeholder. Changed eye boundary, in last commit FYI." />
     <MESSAGE value="Enemy now follows player" />
+    <MESSAGE value="Added and updated player graphics" />
+    <MESSAGE value="Added animations to player, and title screen." />
     <MESSAGE value=".idea" />
-    <option name="LAST_COMMIT_MESSAGE" value=".idea" />
+    <MESSAGE value="Added more player images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more player images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>70</line>
+          <line>73</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
