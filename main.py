@@ -1,6 +1,7 @@
 import pygame
 from math import *
 from sys import exit
+from random import randint
 
 
 class Player(pygame.sprite.Sprite):
@@ -98,21 +99,21 @@ class Eyes(pygame.sprite.Sprite):
 
 
 class Enemy(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, xpos, ypos, velocity):
         super().__init__()
         self.image = pygame.transform.rotozoom(
             pygame.image.load("Assets/Graphics/Penguin/Penguin Front 2.PNG").convert_alpha(), 0, 4)
-        self.rect = self.image.get_rect(center=(600, 600))
+        self.rect = self.image.get_rect(center=(xpos, ypos))
+        self.velocity = velocity
 
-    def ai(self):
+    def pathing(self):
         distanceX = playerXpos - self.rect.centerx
         distanceY = playerYpos - self.rect.centery
-        speed = 5
         angle = atan2(distanceY, distanceX)
         enemyXdir = cos(angle)
         enemyYdir = sin(angle)
-        self.rect.centerx += enemyXdir * speed
-        self.rect.centery += enemyYdir * speed
+        self.rect.centerx += enemyXdir * self.velocity
+        self.rect.centery += enemyYdir * self.velocity
 
     def boundaries(self):
         if self.rect.left <= 0:
@@ -124,12 +125,42 @@ class Enemy(pygame.sprite.Sprite):
         if self.rect.bottom >= 800:
             self.rect.bottom = 800
 
-    def spawning(self):
-        pass
+    def update(self):
+        self.pathing()
+        self.boundaries()
+
+
+class Gun(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.image = pygame.image.load("Assets/Graphics/Player/Gun Left.PNG").convert_alpha()
+        self.rect = self.image.get_rect(center=(playerXpos + 20, playerYpos))
+
+    def update_pos(self):
+        mouseX, mouseY = pygame.mouse.get_pos()
+        distanceX = self.rect.centerx - mouseX
+        distanceY = self.rect.centery - mouseY
+        angle = degrees(atan2(distanceY, distanceX))
+        if mouseX > playerXpos:
+            self.image = pygame.transform.rotate(
+                pygame.image.load("Assets/Graphics/Player/Gun Right.PNG").convert_alpha(), angle)
+            self.image = pygame.transform.flip(self.image, False, True)
+            self.rect = self.image.get_rect(center=(playerXpos + 30, playerYpos))
+
+        else:
+            self.image = pygame.transform.rotate(
+                pygame.image.load("Assets/Graphics/Player/Gun Right.PNG").convert_alpha(), -angle)
+            self.rect = self.image.get_rect(center=(playerXpos - 20, playerYpos))
 
     def update(self):
-        self.ai()
-        self.boundaries()
+        self.update_pos()
+
+
+def sprite_collision():
+    global enemies
+    if pygame.sprite.spritecollide(player.sprite, enemy, True):
+        enemies -= 1
+    pass
 
 
 # Init and Setup
@@ -140,6 +171,8 @@ clock = pygame.time.Clock()
 screen.fill("#f0f49c")
 go_up = False
 go_down = True
+max_enemies = 4
+enemies = 0
 
 # Global Variables
 playerXpos = 0
@@ -165,8 +198,9 @@ player = pygame.sprite.GroupSingle()
 player.add(Player())
 eyes = pygame.sprite.GroupSingle()
 eyes.add(Eyes())
-enemy = pygame.sprite.GroupSingle()
-enemy.add(Enemy())
+enemy = pygame.sprite.Group()
+gun = pygame.sprite.GroupSingle()
+gun.add(Gun())
 
 animation_timer = pygame.USEREVENT + 1
 pygame.time.set_timer(animation_timer, 1000)
@@ -196,8 +230,17 @@ while True:
         eyes.update()
         eyes.draw(screen)
 
+        gun.update()
+        gun.draw(screen)
+
         enemy.update()
         enemy.draw(screen)
+
+        sprite_collision()
+
+        if enemies <= max_enemies:
+            enemy.add(Enemy(randint(0, 1000), randint(0, 800), randint(2, 5)))
+            enemies += 1
 
     else:
         screen.fill("#f8f4ec")
