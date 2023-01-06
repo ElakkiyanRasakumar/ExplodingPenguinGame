@@ -249,13 +249,43 @@ class SpawningBullets(pygame.sprite.Sprite):
         pass
 
 
+class Hearts(pygame.sprite.Sprite):
+    def __init__(self):
+        super.__init__()
+        pass
+
+    def update(self):
+        pass
+
+
 def sprite_collision():
     global enemies
     global bullets
-    # if pygame.sprite.spritecollide(player.sprite, enemy, True):
-    #     enemies -= 1
+    global penguins_killed
+    global game_active
+    global heart_list_index
+    global heart_list_index1
+    global heart_list_index2
+    global heart_list_index3
+    global heart1
+    global heart2
+    global heart3
+    if pygame.sprite.spritecollide(player.sprite, enemy, True):
+        if heart_list_index3 > 0:
+            game_active = False
+        elif heart_list_index2 > 0:
+            heart_list_index3 +=1
+            heart3 = pygame.image.load(heart_list3[heart_list_index3])
+        elif heart_list_index1 > 0:
+            heart_list_index2 += 1
+            heart2 = pygame.image.load(heart_list2[heart_list_index2])
+        elif heart_list_index1 == 0:
+            heart_list_index1 += 1
+            heart1 = pygame.image.load(heart_list1[heart_list_index1])
+
     if pygame.sprite.groupcollide(bullet, enemy, True, True):
         enemies -= 1
+        penguins_killed += 1
     if pygame.sprite.spritecollide(player.sprite, spawningBullets, True):
         bullets += 1
 
@@ -268,7 +298,7 @@ def penguin_shot():
     if playerYpos - 250 < y < playerYpos + 250:
         y = randint(0, 800)
     if len(enemy) < max_enemies:
-        enemy.add(Enemy(x, y, randint(2, 5)))
+        enemy.add(Enemy(x, y, randint(2, 4)))
 
 
 # Init and Setup
@@ -282,10 +312,10 @@ go_up = False
 go_down = True
 max_enemies = 4
 enemies = 0
-max_bullets = 5
-bullets = 5
+bullets = 6
 bullet_active = False
 angle = 0
+penguins_killed = 0
 # Global Variables
 playerXpos = 0
 playerYpos = 0
@@ -302,6 +332,7 @@ gunYposBRight = 0
 game_active = False
 font = pygame.font.Font("Assets/Font/Preahvihear-Regular.ttf", 75)
 font_smaller = pygame.font.Font("Assets/Font/Preahvihear-Regular.ttf", 50)
+counter_font = pygame.font.Font("Assets/Font/Preahvihear-Regular.ttf", 40)
 
 # Game Screen Init
 start_menu_font = font.render("Penguin Apocalypse", True, "Black")
@@ -309,11 +340,33 @@ start_menu_font_rect = start_menu_font.get_rect(center=(500, 200))
 start_menu_font_space = font_smaller.render("Press Space To Play", True, "Black")
 start_menu_font_space_rect = start_menu_font_space.get_rect(center=(500, 600))
 
+# Bullet Couter
+bullet_counter_font = counter_font.render(f"Bullets: {bullets}", True, "Black")
+bullet_counter_font_rect = bullet_counter_font.get_rect(bottomright=(975, 800))
+
 start_menu_player_list = ["Assets/Graphics/Player/Basic Sprite.PNG", "Assets/Graphics/Player/Basic Sprite 2.PNG",
                           "Assets/Graphics/Player/Basic Sprite 3.PNG", "Assets/Graphics/Player/Basic Sprite 4.PNG"]
 start_menu_player_list_index = 0
 start_menu_player = pygame.image.load(start_menu_player_list[start_menu_player_list_index])
 start_menu_player_rect = start_menu_player.get_rect(center=(500, 410))
+
+# Hearts
+heart_list1 = ["Assets/Graphics/Heart/Life.PNG", "Assets/Graphics/Heart/No Life.PNG"]
+heart_list_index1 = 0
+heart1 = pygame.image.load(heart_list1[heart_list_index1])
+heart1_rect = heart1.get_rect(topright=(975, 25))
+
+heart_list2 = ["Assets/Graphics/Heart/Life.PNG", "Assets/Graphics/Heart/No Life.PNG"]
+heart_list_index2 = 0
+heart2 = pygame.image.load(heart_list2[heart_list_index2])
+heart2_rect = heart2.get_rect(topright=(900, 25))
+
+heart_list3 = ["Assets/Graphics/Heart/Life.PNG", "Assets/Graphics/Heart/No Life.PNG"]
+heart_list_index3 = 0
+heart3 = pygame.image.load(heart_list3[heart_list_index3])
+heart3_rect = heart3.get_rect(topright=(825, 25))
+
+heart_list_index = [heart_list_index1, heart_list_index2, heart_list_index3]
 
 # Class Group
 player = pygame.sprite.GroupSingle()
@@ -333,7 +386,6 @@ bullet_spawn_timer = pygame.USEREVENT + 1
 pygame.time.set_timer(bullet_spawn_timer, 500)
 
 while True:
-    print(bullets)
     if game_active:
         screen.fill("#f8f4ec")
     for event in pygame.event.get():
@@ -349,7 +401,22 @@ while True:
                     bullet_active = True
                     bullets -= 1
                     bullet.add(Bullet())
+            if pygame.mouse.get_pressed()[2]:
+                if bullets >= 3:
+                    bullets -= 3
+                    shotgun = pygame.draw.rect(screen, "Black", (playerXpos - 49, playerYpos - 100, 100, 100), border_radius=8)
+                    if heart_list_index3 > 0:
+                        heart_list_index3 -= 1
+                        heart3 = pygame.image.load(heart_list3[heart_list_index3])
+                    elif heart_list_index2 > 0:
+                        heart_list_index2 -= 1
+                        heart2 = pygame.image.load(heart_list2[heart_list_index2])
+                    elif heart_list_index1 > 0:
+                        heart_list_index1 -= 1
+                        heart1 = pygame.image.load(heart_list1[heart_list_index1])
 
+                    # if shotgun.colliderect(bullet)
+                    #     print("ok")
 
         if not game_active:
             if event.type == animation_timer:
@@ -361,7 +428,7 @@ while True:
                 screen.blit(start_menu_player, start_menu_player_rect)
         if game_active:
             if event.type == bullet_spawn_timer:
-                if bullets <= 0:
+                if bullets <= 4:
                     if len(spawningBullets) <= 4:
                         spawningBullets.add(SpawningBullets(randint(100, 900), randint(100, 700)))
 
@@ -382,13 +449,17 @@ while True:
             bullet.update()
             bullet.draw(screen)
 
-
         enemy.update()
         enemy.draw(screen)
 
         sprite_collision()
         penguin_shot()
 
+        bullet_counter_font = counter_font.render(f"Bullets: {bullets}", True, "Black")
+        screen.blit(bullet_counter_font, bullet_counter_font_rect)
+        screen.blit(heart1, heart1_rect)
+        screen.blit(heart2, heart2_rect)
+        screen.blit(heart3, heart3_rect)
 
     else:
         screen.fill("#f8f4ec")
@@ -408,6 +479,7 @@ while True:
             go_down = True
             go_up = False
     pygame.display.update()
+
     if not game_active:
         clock.tick(25)
     else:
