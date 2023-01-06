@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b61c63e7-7e8d-4822-a70c-0259a1a7fe67" name="Changes" comment="Added more player images">
+    <list default="true" id="b61c63e7-7e8d-4822-a70c-0259a1a7fe67" name="Changes" comment=".idea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Player/Gun.PNG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,15 +24,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Elakkiyan/PycharmProjects/ExplodingPenguinGame/Assets/Graphics/Player&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Elakkiyan/PycharmProjects/ExplodingPenguinGame/Assets/Graphics"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics" />
+      <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics\Icon" />
+      <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics\Penguin" />
+      <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame" />
+      <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics\Player" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics\Player" />
     </key>
   </component>
@@ -132,7 +138,35 @@
       <option name="project" value="LOCAL" />
       <updated>1672722536149</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added more gun images. Although I don't use them. Its 4am, and I sorta want to sleep.">
+      <created>1672821640824</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1672821640824</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Removed original gun image.">
+      <created>1672821689782</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1672821689782</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added gun to player, and made penguins despawn on contact.">
+      <created>1672821711385</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1672821711385</updated>
+    </task>
+    <task id="LOCAL-00013" summary=".idea">
+      <created>1672821716808</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1672821716808</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,9 +186,12 @@
     <MESSAGE value="Enemy now follows player" />
     <MESSAGE value="Added and updated player graphics" />
     <MESSAGE value="Added animations to player, and title screen." />
-    <MESSAGE value=".idea" />
     <MESSAGE value="Added more player images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more player images" />
+    <MESSAGE value="Added more gun images. Although I don't use them. Its 4am, and I sorta want to sleep." />
+    <MESSAGE value="Removed original gun image." />
+    <MESSAGE value="Added gun to player, and made penguins despawn on contact." />
+    <MESSAGE value=".idea" />
+    <option name="LAST_COMMIT_MESSAGE" value=".idea" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -163,6 +200,26 @@
           <url>file://$PROJECT_DIR$/main.py</url>
           <line>73</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>65</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>251</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>100</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
