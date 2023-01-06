@@ -101,8 +101,7 @@ class Eyes(pygame.sprite.Sprite):
 class Enemy(pygame.sprite.Sprite):
     def __init__(self, xpos, ypos, velocity):
         super().__init__()
-        self.image = pygame.transform.rotozoom(
-            pygame.image.load("Assets/Graphics/Penguin/Penguin Front 2.PNG").convert_alpha(), 0, 4)
+        self.image = pygame.image.load("Assets/Graphics/Penguin/Front 1.PNG").convert_alpha()
         self.rect = self.image.get_rect(center=(xpos, ypos))
         self.velocity = velocity
 
@@ -137,46 +136,169 @@ class Gun(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(center=(playerXpos + 20, playerYpos))
 
     def update_pos(self):
+        global angle
         mouseX, mouseY = pygame.mouse.get_pos()
         distanceX = self.rect.centerx - mouseX
         distanceY = self.rect.centery - mouseY
         angle = degrees(atan2(distanceY, distanceX))
         if mouseX > playerXpos:
-            self.image = pygame.transform.rotate(
-                pygame.image.load("Assets/Graphics/Player/Gun Right.PNG").convert_alpha(), angle)
-            self.image = pygame.transform.flip(self.image, False, True)
-            self.rect = self.image.get_rect(center=(playerXpos + 30, playerYpos))
+            if 180 > angle > 90:
+                self.image = pygame.transform.rotate(
+                    pygame.image.load("Assets/Graphics/Player/Gun Right.PNG").convert_alpha(), angle)
+                self.image = pygame.transform.flip(self.image, False, True)
+                self.rect = self.image.get_rect(bottomleft=(playerXpos, playerYpos + 13))
+            else:
+                self.image = pygame.transform.rotate(
+                    pygame.image.load("Assets/Graphics/Player/Gun Right.PNG").convert_alpha(), angle)
+                self.image = pygame.transform.flip(self.image, False, True)
+                self.rect = self.image.get_rect(topleft=(playerXpos, playerYpos - 20))
 
         else:
-            self.image = pygame.transform.rotate(
-                pygame.image.load("Assets/Graphics/Player/Gun Right.PNG").convert_alpha(), -angle)
-            self.rect = self.image.get_rect(center=(playerXpos - 20, playerYpos))
+            if 90 > angle > 0:
+                self.image = pygame.transform.rotate(
+                    pygame.image.load("Assets/Graphics/Player/Gun Right.PNG").convert_alpha(), -angle)
+                self.rect = self.image.get_rect(bottomright=(playerXpos, playerYpos + 15))
+            else:
+                self.image = pygame.transform.rotate(
+                    pygame.image.load("Assets/Graphics/Player/Gun Right.PNG").convert_alpha(), -angle)
+                self.rect = self.image.get_rect(topright=(playerXpos, playerYpos - 20))
+
+    def update_global_gun_pos(self):
+        global gunXposLeft
+        global gunYposLeft
+        global gunXposBLeft
+        global gunYposBLeft
+        #
+        global gunXposRight
+        global gunYposRight
+        global gunXposBRight
+        global gunYposBRight
+
+        xLeft, yLeft = self.rect.topleft
+        xBLeft, yBLeft = self.rect.bottomleft
+        xRight, yRight = self.rect.topright
+        xBRight, yBRight = self.rect.bottomright
+
+        gunXposLeft = xLeft
+        gunYposLeft = yLeft
+        gunXposBLeft = xBLeft
+        gunYposBLeft = yBLeft
+
+        gunXposRight = xRight
+        gunYposRight = yRight
+        gunXposBRight = xBRight
+        gunYposBRight = yBRight
 
     def update(self):
         self.update_pos()
+        self.update_global_gun_pos()
+
+
+class Bullet(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        mouseX, mouseY = pygame.mouse.get_pos()
+        self.image = pygame.transform.rotate(pygame.image.load("Assets/Graphics/Player/Bulllet.PNG").convert_alpha(),
+                                             -angle + 180)
+        if mouseX < playerXpos:
+            if angle < 0:
+                self.rect = self.image.get_rect(bottomleft=(gunXposBLeft, gunYposBLeft - 5))
+            else:
+                self.rect = self.image.get_rect(topleft=(gunXposLeft, gunYposLeft + 5))
+        else:
+            if angle < -90:
+                self.rect = self.image.get_rect(bottomright=(gunXposBRight, gunYposBRight - 5))
+            else:
+                self.rect = self.image.get_rect(topright=(gunXposRight, gunYposRight + 5))
+
+        self.x, self.y = self.rect.topleft
+        distanceX = mouseX - self.rect.centerx
+        distanceY = mouseY - self.rect.centery
+        self.angle2 = atan2(distanceY, distanceX)
+        self.dx = cos(self.angle2) * 10
+        self.dy = sin(self.angle2) * 10
+
+    def update_pos(self):
+        self.x += self.dx
+        self.y += self.dy
+        self.rect.topleft = (self.x, self.y)
+
+    def boundaries(self):
+        if self.rect.right > 1000:
+            self.kill()
+        if self.rect.right < 0:
+            self.kill()
+        if self.rect.bottom > 800:
+            self.kill()
+        if self.rect.top < 0:
+            self.kill()
+
+    def update(self):
+        self.update_pos()
+        self.boundaries()
+
+
+class SpawningBullets(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super().__init__()
+
+        self.image = pygame.image.load("Assets/Graphics/Collectable Bullet.PNG")
+        self.rect = self.image.get_rect(center=(x, y))
+
+    def update(self):
+        pass
 
 
 def sprite_collision():
     global enemies
-    if pygame.sprite.spritecollide(player.sprite, enemy, True):
+    global bullets
+    # if pygame.sprite.spritecollide(player.sprite, enemy, True):
+    #     enemies -= 1
+    if pygame.sprite.groupcollide(bullet, enemy, True, True):
         enemies -= 1
-    pass
+    if pygame.sprite.spritecollide(player.sprite, spawningBullets, True):
+        bullets += 1
+
+
+def penguin_shot():
+    x = randint(0, 1000)
+    y = randint(0, 800)
+    if playerXpos - 200 < x < playerXpos + 200:
+        x = randint(0, 1000)
+    if playerYpos - 250 < y < playerYpos + 250:
+        y = randint(0, 800)
+    if len(enemy) < max_enemies:
+        enemy.add(Enemy(x, y, randint(2, 5)))
 
 
 # Init and Setup
 pygame.init()
 screen = pygame.display.set_mode((1000, 800))
 pygame.display.set_caption("Penguin Apocalypse")
+pygame.display.set_icon(pygame.image.load("Assets/Graphics/Icon/Icon.jpg"))
 clock = pygame.time.Clock()
 screen.fill("#f0f49c")
 go_up = False
 go_down = True
 max_enemies = 4
 enemies = 0
-
+max_bullets = 5
+bullets = 5
+bullet_active = False
+angle = 0
 # Global Variables
 playerXpos = 0
 playerYpos = 0
+gunXposLeft = 0
+gunYposLeft = 0
+gunXposBLeft = 0
+gunYposBLeft = 0
+
+gunXposRight = 0
+gunYposRight = 0
+gunXposBRight = 0
+gunYposBRight = 0
+
 game_active = False
 font = pygame.font.Font("Assets/Font/Preahvihear-Regular.ttf", 75)
 font_smaller = pygame.font.Font("Assets/Font/Preahvihear-Regular.ttf", 50)
@@ -201,11 +323,19 @@ eyes.add(Eyes())
 enemy = pygame.sprite.Group()
 gun = pygame.sprite.GroupSingle()
 gun.add(Gun())
+bullet = pygame.sprite.Group()
+spawningBullets = pygame.sprite.Group()
 
 animation_timer = pygame.USEREVENT + 1
 pygame.time.set_timer(animation_timer, 1000)
 
+bullet_spawn_timer = pygame.USEREVENT + 1
+pygame.time.set_timer(bullet_spawn_timer, 500)
+
 while True:
+    print(bullets)
+    if game_active:
+        screen.fill("#f8f4ec")
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -213,6 +343,14 @@ while True:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE and game_active == False:
                 game_active = True
+        if event.type == pygame.MOUSEBUTTONDOWN and game_active:
+            if pygame.mouse.get_pressed()[0]:
+                if bullets > 0:
+                    bullet_active = True
+                    bullets -= 1
+                    bullet.add(Bullet())
+
+
         if not game_active:
             if event.type == animation_timer:
                 if start_menu_player_list_index <= 2:
@@ -221,9 +359,14 @@ while True:
                     start_menu_player_list_index = 0
                 start_menu_player = pygame.image.load(start_menu_player_list[start_menu_player_list_index])
                 screen.blit(start_menu_player, start_menu_player_rect)
+        if game_active:
+            if event.type == bullet_spawn_timer:
+                if bullets <= 0:
+                    if len(spawningBullets) <= 4:
+                        spawningBullets.add(SpawningBullets(randint(100, 900), randint(100, 700)))
 
     if game_active:
-        screen.fill("#f8f4ec")
+
         player.update()
         player.draw(screen)
 
@@ -233,14 +376,19 @@ while True:
         gun.update()
         gun.draw(screen)
 
+        spawningBullets.draw(screen)
+
+        if bullet_active:
+            bullet.update()
+            bullet.draw(screen)
+
+
         enemy.update()
         enemy.draw(screen)
 
         sprite_collision()
+        penguin_shot()
 
-        if enemies <= max_enemies:
-            enemy.add(Enemy(randint(0, 1000), randint(0, 800), randint(2, 5)))
-            enemies += 1
 
     else:
         screen.fill("#f8f4ec")
@@ -259,7 +407,6 @@ while True:
         if start_menu_font_rect.centery == 200:
             go_down = True
             go_up = False
-
     pygame.display.update()
     if not game_active:
         clock.tick(25)
