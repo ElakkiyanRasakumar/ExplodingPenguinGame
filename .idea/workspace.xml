@@ -28,16 +28,16 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Elakkiyan/PycharmProjects/ExplodingPenguinGame/Assets/Graphics"
+    "last_opened_file_path": "C:/Users/Elakkiyan/PycharmProjects/ExplodingPenguinGame/Assets/Graphics/Heart"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics\Heart" />
+      <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame" />
       <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics" />
       <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics\Icon" />
       <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics\Penguin" />
-      <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame" />
-      <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics\Player" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Elakkiyan\PycharmProjects\ExplodingPenguinGame\Assets\Graphics\Player" />
@@ -166,7 +166,28 @@
       <option name="project" value="LOCAL" />
       <updated>1672821716808</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added and changed designs">
+      <created>1672999666262</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1672999666262</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added features. Too tired to list 'em. If YOU want to know so badly, download it and figure it out.">
+      <created>1672999715087</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1672999715087</updated>
+    </task>
+    <task id="LOCAL-00016" summary=".idea">
+      <created>1672999721697</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1672999721697</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,6 +211,8 @@
     <MESSAGE value="Added more gun images. Although I don't use them. Its 4am, and I sorta want to sleep." />
     <MESSAGE value="Removed original gun image." />
     <MESSAGE value="Added gun to player, and made penguins despawn on contact." />
+    <MESSAGE value="Added and changed designs" />
+    <MESSAGE value="Added features. Too tired to list 'em. If YOU want to know so badly, download it and figure it out." />
     <MESSAGE value=".idea" />
     <option name="LAST_COMMIT_MESSAGE" value=".idea" />
   </component>
@@ -213,7 +236,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>251</line>
+          <line>260</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
