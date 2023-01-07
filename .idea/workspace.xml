@@ -187,7 +187,28 @@
       <option name="project" value="LOCAL" />
       <updated>1672999721697</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added Heart Graphics">
+      <created>1673049435488</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1673049435488</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added Heart System. Worked First try? Smth ain't adding up. Efficent code? Prolly not.">
+      <created>1673049481610</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1673049481611</updated>
+    </task>
+    <task id="LOCAL-00019" summary=".idea">
+      <created>1673049488689</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1673049488689</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,6 +234,8 @@
     <MESSAGE value="Added gun to player, and made penguins despawn on contact." />
     <MESSAGE value="Added and changed designs" />
     <MESSAGE value="Added features. Too tired to list 'em. If YOU want to know so badly, download it and figure it out." />
+    <MESSAGE value="Added Heart Graphics" />
+    <MESSAGE value="Added Heart System. Worked First try? Smth ain't adding up. Efficent code? Prolly not." />
     <MESSAGE value=".idea" />
     <option name="LAST_COMMIT_MESSAGE" value=".idea" />
   </component>
@@ -236,13 +259,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>260</line>
+          <line>264</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
           <line>100</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>255</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
