@@ -4,6 +4,8 @@ from sys import exit
 from random import randint
 
 
+# from csv import *
+
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -33,14 +35,14 @@ class Player(pygame.sprite.Sprite):
             self.rect.x += dx
 
     def boundaries(self):
-        if self.rect.left <= 0:
-            self.rect.left = 0
-        if self.rect.right >= 1000:
-            self.rect.right = 1000
-        if self.rect.top <= 0:
-            self.rect.top = 0
-        if self.rect.bottom >= 800:
-            self.rect.bottom = 800
+        if self.rect.right <= 0:
+            self.rect.left = 1000
+        elif self.rect.left >= 1000:
+            self.rect.right = 0
+        elif self.rect.bottom <= 0:
+            self.rect.top = 800
+        elif self.rect.top >= 800:
+            self.rect.bottom = 0
 
     def update_global_player_pos(self):
         global playerXpos
@@ -142,6 +144,12 @@ class Gun(pygame.sprite.Sprite):
     def update_pos(self):
         global angle
         mouseX, mouseY = pygame.mouse.get_pos()
+        # if playerYpos - 250 <= mouseY <= playerYpos + 250:
+        #     if mouseY < playerYpos:
+        #         mouseY -= 100
+        #     if mouseY > playerYpos:
+        #         mouseY += 100
+
         distanceX = self.rect.centerx - mouseX
         distanceY = self.rect.centery - mouseY
         angle = degrees(atan2(distanceY, distanceX))
@@ -282,7 +290,7 @@ def sprite_collision():
                 game_over = True
                 game_active = False
             elif heart_list_index2 > 0:
-                heart_list_index3 +=1
+                heart_list_index3 += 1
                 heart3 = pygame.image.load(heart_list3[heart_list_index3])
             elif heart_list_index1 > 0:
                 heart_list_index2 += 1
@@ -294,6 +302,8 @@ def sprite_collision():
     if pygame.sprite.groupcollide(bullet, enemy, True, True):
         enemies -= 1
         penguins_killed += 1
+        if randint(0, 1) == 1:
+            bullets += 1
     if pygame.sprite.spritecollide(player.sprite, spawningBullets, True):
         bullets += 1
 
@@ -308,10 +318,12 @@ def penguin_shot():
     if len(enemy) < max_enemies:
         enemy.add(Enemy(x, y, randint(2, 4)))
 
+
 def player_hitbox():
     global player_hitboxs
     player_hitboxs.centerx = playerXpos
     player_hitboxs.centery = playerYpos
+
 
 # Init and Setup
 pygame.init()
@@ -364,7 +376,6 @@ bullet_counter_font_rect = bullet_counter_font.get_rect(bottomright=(975, 800))
 penguin_counter_font = counter_font.render(f"Penguins Killed: {penguins_killed}", True, "Black")
 penguin_counter_font_rect = bullet_counter_font.get_rect(bottomleft=(25, 800))
 penguin_counter_font_rect_outro = bullet_counter_font.get_rect(center=(400, 600))
-
 
 start_menu_player_list = ["Assets/Graphics/Player/Basic Sprite.PNG", "Assets/Graphics/Player/Basic Sprite 2.PNG",
                           "Assets/Graphics/Player/Basic Sprite 3.PNG", "Assets/Graphics/Player/Basic Sprite 4.PNG"]
@@ -437,7 +448,7 @@ while True:
             if pygame.mouse.get_pressed()[2]:
                 if bullets >= 3:
                     bullets -= 3
-                    shotgun = pygame.rect.Rect((playerXpos - 249, playerYpos -250 , 500, 500))
+                    shotgun = pygame.rect.Rect((playerXpos - 249, playerYpos - 250, 500, 500))
                     if heart_list_index3 > 0:
                         heart_list_index3 -= 1
                         heart3 = pygame.image.load(heart_list3[heart_list_index3])
@@ -451,7 +462,8 @@ while True:
                         if shotgun.colliderect(pewpew.rect):
                             penguins_killed += 1
                             pewpew.kill()
-
+                            if randint(0, 1) == 1:
+                                bullets += 1
 
         if not game_active:
             if event.type == animation_timer:
@@ -526,7 +538,6 @@ while True:
         screen.blit(penguin_counter_font, penguin_counter_font_rect_outro)
         eyes.update()
         eyes.draw(screen)
-
 
     if not game_active:
         clock.tick(25)
